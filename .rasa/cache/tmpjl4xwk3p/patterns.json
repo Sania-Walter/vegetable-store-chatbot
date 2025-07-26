@@ -1,0 +1,10 @@
+[
+  {
+    "name": "veg_qty",
+    "pattern": "\\d+(\\.\\d+)?\\s?(kg|g)?"
+  },
+  {
+    "name": "vegetable",
+    "pattern": "(\\btomato\\b|\\bpotato\\b|\\bonion\\b|\\bcarrot\\b|\\bspinach\\b|\\bbroccoli\\b)"
+  }
+]

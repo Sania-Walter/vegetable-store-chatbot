@@ -1,0 +1,96 @@
+version: "3.1"
+
+rules:
+
+# Greet user
+- rule: Greet user
+  steps:
+    - intent: greet
+    - action: utter_greet
+
+# Show inventory
+- rule: Show inventory
+  steps:
+    - intent: show_inventory
+    - action: action_fetch_inventory
+
+# Ask price of a vegetable
+- rule: Ask vegetable price
+  steps:
+    - intent: ask_price
+    - action: action_get_price
+
+# Show offers
+- rule: Show offers
+  steps:
+    - intent: ask_offers
+    - action: utter_show_offers
+
+# Show store timings
+- rule: Show store timings
+  steps:
+    - intent: ask_timing
+    - action: utter_store_hours
+
+# Place first order
+- rule: Order a vegetable
+  steps:
+    - intent: order_vegetable
+    - action: action_add_order
+    - action: utter_ask_anything_else
+
+# Add more items to the cart
+- rule: Add more to cart
+  steps:
+    - intent: add_to_cart
+    - action: action_add_order
+    - action: utter_ask_anything_else
+
+# Show order summary
+- rule: Show order summary
+  steps:
+    - intent: show_order_summary
+    - action: action_show_order_summary
+    - action: utter_proceed_to_payment
+
+# Start checkout form IF user confirms and no name is collected yet
+- rule: Start checkout form
+  condition:
+    - slot_was_set:
+        - name: null
+  steps:
+    - intent: affirm
+    - action: checkout_form
+    - active_loop: checkout_form
+
+# Submit form and ask for payment confirmation
+- rule: Submit form and confirm order
+  condition:
+    - active_loop: checkout_form
+  steps:
+    - action: checkout_form
+    - active_loop: null
+    - action: action_save_order
+    - action: utter_ask_payment_confirmation
+
+# Confirm payment only if user info is already collected
+- rule: Confirm payment
+  condition:
+    - slot_was_set:
+        - name: true
+  steps:
+    - intent: affirm
+    - action: action_proceed_payment
+    - action: utter_order_confirmed
+
+# Cancel payment/order
+- rule: Cancel order or payment
+  steps:
+    - intent: deny
+    - action: utter_cancel_payment
+
+# Cancel the whole order anytime
+- rule: Cancel full order
+  steps:
+    - intent: cancel_order
+    - action: action_cancel_order

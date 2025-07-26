@@ -1,0 +1,6 @@
+[
+  {
+    "name": "veg_qty",
+    "pattern": "\\d+(\\.\\d+)?\\s?(kg|g|kilograms|grams)?"
+  }
+]

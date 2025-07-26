@@ -1,0 +1,127 @@
+version: "3.1"
+
+intents:
+  - greet
+  - show_inventory
+  - ask_price
+  - ask_offers
+  - ask_timing
+  - order_vegetable
+  - add_to_cart
+  - show_order_summary
+  - affirm
+  - deny
+  - cancel_order
+  - give_feedback
+  - proceed_to_checkout
+
+entities:
+  - vegetable
+  - veg_qty
+
+slots:
+  veg_item:
+    type: text
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: vegetable
+
+  veg_qty:
+    type: float
+    influence_conversation: false
+    mappings:
+      - type: from_entity
+        entity: veg_qty
+
+  order_list:
+    type: list
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+  name:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: checkout_form
+            requested_slot: name
+
+  phone:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: checkout_form
+            requested_slot: phone
+
+  address:
+    type: text
+    influence_conversation: true
+    mappings:
+      - type: from_text
+        conditions:
+          - active_loop: checkout_form
+            requested_slot: address
+
+  checkout_completed:
+    type: bool
+    influence_conversation: false
+    mappings:
+      - type: custom
+
+forms:
+  checkout_form:
+    required_slots:
+      - name
+      - phone
+      - address
+
+responses:
+  utter_greet:
+    - text: "Hello there! Welcome to the Green Basket🧺! How can I help you?"
+
+  utter_store_hours:
+    - text: "🕒 We're open from 9 AM to 9 PM, Monday to Saturday."
+
+  utter_show_offers:
+    - text: "🤑 Offer: Buy 2 kg potatoes, get 500 g coriander free!"
+
+  utter_ask_anything_else:
+    - text: "➕ Do you want to add anything else or proceed to payment?"
+
+  utter_proceed_to_payment:
+    - text: "Would you like to proceed with the payment?"
+
+  utter_ask_payment_confirmation:
+    - text: "Would you like to confirm and pay now?"
+
+  utter_order_confirmed:
+    - text: "💳 Payment received. ✅ Order confirmed!"
+
+  utter_cancel_payment:
+    - text: "❌ Order cancelled. Feel free to place a new one anytime!"
+
+  utter_order_summary:
+    - text: "✅ Order summary sent!"
+
+  utter_ask_checkout_form_name:
+    - text: "Please tell me your name."
+
+  utter_ask_checkout_form_phone:
+    - text: "📞 May I have your phone number?"
+
+  utter_ask_checkout_form_address:
+    - text: "📍 Where should we deliver your order?"
+
+actions:
+  - action_fetch_inventory
+  - action_get_price
+  - action_add_order
+  - action_show_order_summary
+  - action_cancel_order
+  - action_save_order
+  - action_proceed_payment

@@ -1,0 +1,15 @@
+{
+  "0": "add_to_cart",
+  "1": "affirm",
+  "2": "ask_offers",
+  "3": "ask_price",
+  "4": "ask_timing",
+  "5": "cancel_order",
+  "6": "deny",
+  "7": "give_feedback",
+  "8": "greet",
+  "9": "order_vegetable",
+  "10": "proceed_to_checkout",
+  "11": "show_inventory",
+  "12": "show_order_summary"
+}

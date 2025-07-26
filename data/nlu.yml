@@ -1,0 +1,132 @@
+version: "3.1"
+
+nlu:
+
+- intent: greet
+  examples: |
+    - hi
+    - hello
+    - hey
+    - good morning
+    - good evening
+    - namaste
+    - what's up
+    - howdy
+
+- intent: show_inventory
+  examples: |
+    - what do you have
+    - what is available
+    - show me the vegetables
+    - list available vegetables
+    - what is in stock
+    - what's in stock
+    - inventory
+    - what vegetables are there  
+    - tell me the available vegetables
+
+- intent: ask_price
+  examples: |
+    - what is the price of [tomato](vegetable)
+    - how much is [onion](vegetable) per kg
+    - price of [potato](vegetable)
+    - rate of [carrot](vegetable)
+    - tell me price of [spinach](vegetable)
+    - how much for 1 kg of [broccoli](vegetable)
+
+- intent: ask_offers
+  examples: |
+    - is there any offer
+    - current deals
+    - any discounts
+    - what are the offers
+    - any promotions today
+    - show me today's deal
+
+- intent: ask_timing
+  examples: |
+    - what are your store timings
+    - when do you open
+    - are you open on Sunday
+    - store hours
+    - timings please
+    - when do you close
+
+- intent: order_vegetable
+  examples: |
+    - I want [2 kg](veg_qty) [potato](vegetable)
+    - order [1.5 kg](veg_qty) [tomato](vegetable)
+    - buy [3 kg](veg_qty) [onion](vegetable)
+    - get me [1 kg](veg_qty) [spinach](vegetable)
+    - I would like [0.5 kg](veg_qty) [broccoli](vegetable)
+    - order [5 kg](veg_qty) [carrot](vegetable)
+
+- intent: add_to_cart
+  examples: |
+    - add [1 kg](veg_qty) [onion](vegetable)
+    - I also want [2 kg](veg_qty) [carrot](vegetable)
+    - also [1 kg](veg_qty) [broccoli](vegetable)
+    - include [3 kg](veg_qty) [potato](vegetable)
+    - add [2.5 kg](veg_qty) of [spinach](vegetable)
+    - also add [1 kg](veg_qty) [tomato](vegetable)
+
+- intent: show_order_summary
+  examples: |
+    - show my order
+    - order summary
+    - what have I ordered
+    - review my cart
+    - show cart
+    - check my order
+
+- intent: proceed_to_checkout
+  examples: |
+    - proceed to checkout
+    - I am done
+    - done adding
+    - ready to pay
+    - checkout now
+    - continue to checkout
+    - no more, let's checkout
+
+- intent: affirm
+  examples: |
+    - yes
+    - proceed
+    - go ahead
+    - confirm
+    - sure
+    - okay
+    - done
+    - yes please
+
+- intent: deny
+  examples: |
+    - no
+    - not now
+    - cancel
+    - stop
+    - I don’t want to
+    - I changed my mind
+
+- intent: cancel_order
+  examples: |
+    - cancel my order
+    - I want to cancel
+    - remove my order
+    - delete order
+    - I don’t want the items
+    - clear my cart
+
+- intent: give_feedback
+  examples: |
+    - great service
+    - delivery was slow
+    - good quality vegetables
+    - I didn’t like the product
+    - the order was fast
+    - very satisfied
+
+entities:
+  - vegetable
+  - veg_qty

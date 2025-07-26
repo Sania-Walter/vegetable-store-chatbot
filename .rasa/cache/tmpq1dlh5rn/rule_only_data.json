@@ -1,0 +1,8 @@
+{
+  "rule_only_slots": [
+    "name"
+  ],
+  "rule_only_loops": [
+    "checkout_form"
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "0": "affirm",
+  "1": "ask_offers",
+  "2": "ask_price",
+  "3": "ask_timing",
+  "4": "cancel_order",
+  "5": "give_feedback",
+  "6": "greet",
+  "7": "order_vegetable",
+  "8": "show_inventory",
+  "9": "show_order_summary",
+  "10": "update_order"
+}

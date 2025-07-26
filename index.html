@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Vegetable Store Chatbot</title>
+    <style>
+    #webchat {
+      width: 400px;
+      border: 1px solid #ccc;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+  </style>
+</head>
+<body bgcolor="#d4fcd6">
+
+<h1>Welcome to Green Basket 🧺</h1>
+<div id="webchat"></div> 
+
+<!-- Rasa Webchat -->
+<script>
+  !(function () {
+    let e = document.createElement("script");
+    e.src = "https://cdn.jsdelivr.net/npm/rasa-webchat@1.0.1/lib/index.js";
+    e.async = true;
+     e.onload = function () {
+      window.WebChat.default(
+        {
+          initPayload: "/greet",
+          customData: { language: "en" },
+          socketUrl: "http://localhost:5005",
+          socketPath: "/socket.io/",
+          title: "Green Basket Assistant 🧺",
+          subtitle: "Smart Veggie Shopping",
+          inputTextFieldHint: "Ask me about vegetables!",
+          profileAvatar: "https://cdn-icons-png.flaticon.com/512/135/135620.png",
+          showCloseButton: true,
+          embedded: true,              
+          selector: "#webchat"        
+        },
+        null
+      );
+        const observer = new MutationObserver(() => {
+  const container = document.querySelector("#webchat");
+  container.scrollTop = container.scrollHeight;
+});
+
+// Observe changes in the chat messages
+observer.observe(document.querySelector("#webchat"), {
+  childList: true,
+  subtree: true,
+});
+
+    };
+    document.head.appendChild(e);
+  })();
+</script>
+
+</body>
+</html>

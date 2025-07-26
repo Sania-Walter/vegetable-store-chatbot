@@ -1,0 +1,43 @@
+{
+  "lookup": {
+    "rules": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_timing\"}}]": "utter_store_hours",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_timing\"}}, {\"prev_action\": {\"action_name\": \"utter_store_hours\"}, \"user\": {\"intent\": \"ask_timing\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_price\"}}]": "action_get_price",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_price\"}}, {\"prev_action\": {\"action_name\": \"action_get_price\"}, \"user\": {\"intent\": \"ask_price\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_offers\"}}]": "utter_show_offers",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_offers\"}}, {\"prev_action\": {\"action_name\": \"utter_show_offers\"}, \"user\": {\"intent\": \"ask_offers\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"order_vegetable\"}}]": "order_form",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"order_vegetable\"}}, {\"active_loop\": {\"name\": \"order_form\"}, \"prev_action\": {\"action_name\": \"order_form\"}, \"user\": {\"intent\": \"order_vegetable\"}}]": "action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"show_inventory\"}}]": "action_fetch_inventory",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"show_inventory\"}}, {\"prev_action\": {\"action_name\": \"action_fetch_inventory\"}, \"user\": {\"intent\": \"show_inventory\"}}]": "action_listen",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"order_form\"}}]": "action_save_order",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"order_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_save_order\"}}]": "action_listen"
+    },
+    "rule_only_slots": [],
+    "rule_only_loops": [
+      "order_form"
+    ],
+    "rules_for_loop_unhappy_path": {
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}}, {\"active_loop\": {\"name\": \"order_form\"}, \"prev_action\": {\"action_name\": \"order_form\"}, \"user\": {\"intent\": \"order_vegetable\"}}]": "do_not_predict_loop_action"
+    },
+    "rules_not_in_stories": [
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_offers\"}}, {\"prev_action\": {\"action_name\": \"utter_show_offers\"}, \"user\": {\"intent\": \"ask_offers\"}}]",
+      "predicting default action with intent session_start",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_timing\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_offers\"}}]",
+      "predicting default action with intent back",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"order_form\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_price\"}}, {\"prev_action\": {\"action_name\": \"action_get_price\"}, \"user\": {\"intent\": \"ask_price\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"order_vegetable\"}}]",
+      "handling active loops and forms - order_form - action_listen",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_price\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"show_inventory\"}}]",
+      "handling active loops and forms - order_form",
+      "[{\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"order_form\"}}, {\"active_loop\": {\"name\": \"should_not_be_set\"}, \"prev_action\": {\"action_name\": \"action_save_order\"}}]",
+      "predicting default action with intent restart",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"ask_timing\"}}, {\"prev_action\": {\"action_name\": \"utter_store_hours\"}, \"user\": {\"intent\": \"ask_timing\"}}]",
+      "[{\"prev_action\": {\"action_name\": \"action_listen\"}, \"user\": {\"intent\": \"show_inventory\"}}, {\"prev_action\": {\"action_name\": \"action_fetch_inventory\"}, \"user\": {\"intent\": \"show_inventory\"}}]"
+    ]
+  }
+}

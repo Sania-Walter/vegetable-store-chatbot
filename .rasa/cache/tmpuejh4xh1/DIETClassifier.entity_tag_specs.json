@@ -1,0 +1,28 @@
+[
+  {
+    "tag_name": "entity",
+    "ids_to_tags": {
+      "1": "B-order_id",
+      "2": "I-order_id",
+      "3": "L-order_id",
+      "4": "U-order_id",
+      "5": "B-vegetable",
+      "6": "I-vegetable",
+      "7": "L-vegetable",
+      "8": "U-vegetable",
+      "0": "O"
+    },
+    "tags_to_ids": {
+      "B-order_id": 1,
+      "I-order_id": 2,
+      "L-order_id": 3,
+      "U-order_id": 4,
+      "B-vegetable": 5,
+      "I-vegetable": 6,
+      "L-vegetable": 7,
+      "U-vegetable": 8,
+      "O": 0
+    },
+    "num_tags": 9
+  }
+]

@@ -1,0 +1,11 @@
+{
+  "0": "ask_offers",
+  "1": "ask_price",
+  "2": "ask_timing",
+  "3": "cancel_order",
+  "4": "give_feedback",
+  "5": "greet",
+  "6": "order_vegetable",
+  "7": "show_inventory",
+  "8": "update_order"
+}
